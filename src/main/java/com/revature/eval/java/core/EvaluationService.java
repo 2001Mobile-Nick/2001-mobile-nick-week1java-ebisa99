@@ -603,15 +603,29 @@ public class EvaluationService {
 	 */
 	public boolean isValidIsbn(String string) {
 		// TODO Write an implementation for this method declaration
+		boolean bool = false;
+		string.trim();
 		String[] array = string.split(" ");
 		String str = array[2];
 		String str1 = str.replace("-", "");
 		//long l = Integer.parseInt(str1);
+		int t = 0;
 		for(int i = 0; i < str1.length(); i++)
 		{
-			
+			int s = Integer.parseInt(str1.substring(i, i + 1));
+			int j = 10;
+			t += (s * j);
+			j--;
 		}
-		return false;
+		if((t % 11) == 0)
+		{
+			bool = true;
+		}
+		else
+		{
+			bool = false;
+		}
+		return bool;
 	}
 
 	/**
